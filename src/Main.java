@@ -165,7 +165,7 @@ public class Main {
     //получаем путь исходного файла
     private static String getPathIn() {
         String path;
-        String error = "Не верный путь к файлу";
+        String error = "Не верный путь к файлу или выбран файл не txt";
         while (true) {
             System.out.println("Введите путь к файлу");
             if (scanner.hasNextLine()) {
@@ -175,7 +175,7 @@ public class Main {
                 continue;
             }
             try {
-                if (Files.exists(Path.of(path))) {
+                if (Files.exists(Path.of(path))&& path.endsWith(".txt")) {
                     return path;
                 } else {
                     System.out.println(error);
